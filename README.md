@@ -41,6 +41,7 @@ In order to run the analysis follow these steps:
 2. Open the R-project `name`  by double-clicking the file `name.Rproj` you can find in the main directory. A new R-studio session should open and a similar message should appear in the console if `renv` was correctly installed:
 
   `* Project '~ <your_path>/name' loaded. [renv <version_number>]`
+  
 3. Run the line `renv::restore()`, `renv` will ask the permission to install the R-packages used in the analysis, type `y` and return to confirm.
 4. Open the file [R/Analysis.R](R/Analysis.R) and run each line of the sections "Load", "Check", and "Make".
 5. Now you can access the targets with the results using the functions `drake::loadd(<name_target>)` and `drake::readd(<name_target>)`.
