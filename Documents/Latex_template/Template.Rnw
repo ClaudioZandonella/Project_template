@@ -46,6 +46,8 @@
 \newcommand{\textstreach}{\renewcommand{\baselinestretch}{1.5}}{} % default line stretch
 \newcommand{\codestreach}{\renewcommand{\baselinestretch}{1}}{}   % code line streach
 
+\renewenvironment{knitrout}{\renewcommand{\baselinestretch}{1}}{}
+
 \textstreach
 
 %----    Todo    -----%
@@ -64,15 +66,20 @@
 # Set root directory
 #knitr::opts_knit$set(root.dir = normalizePath(".."))
 
-# Chunks settings
 knitr::opts_chunk$set(echo = FALSE,
                       # Plot settings
                       dev = "tikz", dev.args=list(pointsize=12),fig.align='center',
-                     # fig.height=3, fig.width=5,
+                      # fig.height=3, fig.width=5,
+
                       # Code output width
                       tidy=TRUE, tidy.opts = list(width.cutoff = 87),
+                      # comment = NA, prompt = TRUE
+
                       # Cache options
                       cache = TRUE, autodep=TRUE)
+
+# Console output width
+options(width = 90)
 
 # Chunk theme
 thm=knit_theme$get("bclear")
