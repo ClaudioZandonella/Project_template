@@ -84,7 +84,7 @@ options(width = 90)
 # Chunk theme
 thm=knit_theme$get("bclear")
 knitr::knit_theme$set(thm)
-knitr::opts_chunk$set(background = c(.985, .985, .985))
+knitr::opts_chunk$set(background = c(.98, .98, 1))
 
 @
 
