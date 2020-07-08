@@ -46,12 +46,18 @@
 \newcommand{\textstreach}{\renewcommand{\baselinestretch}{1.5}}{} % default line stretch
 \newcommand{\codestreach}{\renewcommand{\baselinestretch}{1}}{}   % code line streach
 
-\renewenvironment{knitrout}{\renewcommand{\baselinestretch}{1}}{}
+% \renewenvironment{knitrout}{\renewcommand{\baselinestretch}{1}}{} % gives problem with graphics
 
 \textstreach
 
 %----    Todo    -----%
 \newcommand{\todo}[1]{(\textcolor{red}{Todo: #1})}
+
+%-----    No authors    ----%
+
+% 0 = Remove authors for reviewers
+% 1 = Keep authors
+\def\printauthors{0}
 
 %---------------
 % Added comand to resolve bug of pgf path when looking for raster images
@@ -133,7 +139,8 @@ source("../../R/Auxiliary_functions.R")            # Load auxiliary functions
 	\vspace*{2cm}
 	{\huge \bf Title paper}\\
 	\vspace{1cm}
-	{\Large List authors\par}
+	\if\printauthors1
+  	{\Large List authors\par}
   \vspace{1cm}
   {List affiliations\par}
 	\vspace{2cm}
@@ -146,11 +153,16 @@ source("../../R/Auxiliary_functions.R")            # Load auxiliary functions
 	\vfill
 	*e-mail address\par
 	\href{mailto:claudio.zandonella@gmail.com}{claudiozandonella@gmail.com}
+  \else
+    \vfill
+    {\huge\bfseries Title report\par}
+    \vfill
+  \fi
 
 	\vfill
 
 % Bottom of the page
-	{\large \today\par}
+	{\large Last compiled\\ \today\par}
 
 	\vspace{2cm}
 
